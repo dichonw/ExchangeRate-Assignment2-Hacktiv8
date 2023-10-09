@@ -1,8 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Table from 'react-bootstrap/table';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const API_KEY = 'beee3e3f2df5447bb5c45eaca885201e';
@@ -32,7 +31,7 @@ function App() {
     <div className="App">
       <div className="container">
         <h1 className="text-light my-3">Currency Rates</h1>
-        <Table striped bordered hover variant="dark">
+        <table className="table table-dark table-striped">
           <thead>
             <tr>
               <td className="fw-bold">Currency</td>
@@ -51,7 +50,7 @@ function App() {
             </tr>
             ))}
           </tbody>
-        </Table>
+        </table>
         <p className="text-light">
           Rates are based from 1 USD <br/>
           This application uses API from <a href="https://currencyfreaks.com">https://currencyfreaks.com</a> 
