@@ -1,8 +1,6 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Table from 'react-bootstrap/table';
 
 function App() {
   const API_KEY = 'beee3e3f2df5447bb5c45eaca885201e';
@@ -29,34 +27,32 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <div className="container">
-        <h1 className="text-light my-3">Currency Rates</h1>
-        <Table striped bordered hover variant="dark">
-          <thead>
-            <tr>
-              <td className="fw-bold">Currency</td>
-              <td className="fw-bold">We Buy</td>
-              <td className="fw-bold">Exchange Rate</td>
-              <td className="fw-bold">We Shell</td>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((items, index) => (
-            <tr key={index}>
-              <td>{items.currencyName.toString()}</td>
-              <td>{items.weBuy.toString()}</td>
-              <td>{items.exchangeRate.toString()}</td>
-              <td>{items.weSell.toString()}</td>
-            </tr>
-            ))}
-          </tbody>
-        </Table>
-        <p className="text-light">
-          Rates are based from 1 USD <br/>
-          This application uses API from <a href="https://currencyfreaks.com">https://currencyfreaks.com</a> 
-        </p>
-      </div>
+    <div className="container mx-auto p-5">
+      <h1 className="text-4xl text-center font-semibold mb-5">Currency Rates</h1>
+      <table className="w-full text-sm text-left text-gray-500 ">
+        <thead className="text-sm text-center bg-slate-900 text-white font-bold">
+          <tr>
+            <td className="px-6 py-3">Currency</td>
+            <td className="px-6 py-3">We Buy</td>
+            <td className="px-6 py-3">Exchange Rate</td>
+            <td className="px-6 py-3">We Shell</td>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((items, index) => (
+          <tr key={index}>
+            <td className="text-center text-white px-6 py-3 font-semibold bg-slate-800">{items.currencyName.toString()}</td>
+            <td className="text-center text-white px-6 py-3 font-semibold bg-slate-800">{items.weBuy.toString()}</td>
+            <td className="text-center text-white px-6 py-3 font-semibold bg-slate-800">{items.exchangeRate.toString()}</td>
+            <td className="text-center text-white px-6 py-3 font-semibold bg-slate-800">{items.weSell.toString()}</td>
+          </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className="text-slate-800 text-center mt-2">
+        Rates are based from 1 USD <br/>
+        This application uses API from <a className="text-blue-500" href="https://currencyfreaks.com">https://currencyfreaks.com</a> 
+      </p>
     </div>
   );
 };
